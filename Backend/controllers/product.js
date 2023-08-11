@@ -5,16 +5,28 @@ const Product = model.Product
 
 
 exports.createProduct = (req,res) =>{
+  // uncomment when u connect the databse
 
-    const product = new Product(req.body)
-    product
-    .save()
-    .then((doc) => {
-      res.status(201).json(doc);
+
+    const product = new Product({
+      prodname:req.body.prodname,
+      quantity:req.body.quantity,
+      company:req.body.company,
+      category:req.body.category,
+      subcategory:req.body.subcategory,
+
     })
-    .catch((err) => {
-      res.status(401).json(err);
-    });
+    res.send(product)
+
+    // uncomment once database is connected 
+    // product
+    // .save()
+    // .then((doc) => {
+    //   res.status(201).json(doc);
+    // })
+    // .catch((err) => {
+    //   res.status(400).json(err);
+    // });
 
 
 }
