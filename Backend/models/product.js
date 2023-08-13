@@ -7,6 +7,6 @@ const productSchema = new Schema({
     company:{type:String, required:[true , "Company of the product is mandatory"] },
     category:{type:String, required:[true , "Category of the product is mandatory"]},
     subcategory:{type:String },
-    // image :{type:String, required:[true,"Image of the product is mandatory"]}
+    image :{type:String, required:[true,"Image of the product is mandatory"]}
 })
 exports.Product = mongoose.model('product',productSchema)
