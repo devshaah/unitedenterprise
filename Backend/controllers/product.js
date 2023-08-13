@@ -35,21 +35,22 @@ cloudinary.uploader.upload(file.tempFilePath,(err,result)=>{
 
   // uncomment once database is connected
 
-  // product
-  // .save()
-  // .then((doc) => {
-  //   res.status(201).json(doc);
-  // })
-  // .catch((err) => {
-  //   res.status(400).json(err);
-  // });
+  product
+  .save()
+  .then((doc) => {
+    res.status(201).json(doc);
+  })
+  .catch((err) => {
+    res.status(400).json(err);
+  });
 }) 
     
 
 
 }
-exports.getAllProducts = (req,res) =>{
-    res.status(200).json(req.body)
+exports.getAllProducts = async(req,res) =>{
+  const products = await Product.find()
+    res.status(200).json(products)
 
 
 }
