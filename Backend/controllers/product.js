@@ -49,8 +49,9 @@ cloudinary.uploader.upload(file.tempFilePath,(err,result)=>{
 
 }
 exports.getAllProducts = async(req,res) =>{
-  const products = await Product.find()
-    res.status(200).json(products)
+  // const products = await Product.find()
+  //   res.status(200).json(products)
+  res.send('hello')
 
 
 }
