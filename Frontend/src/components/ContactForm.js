@@ -20,22 +20,22 @@ const ContactForm = () => {
   });
 
   return (
-    <div className="w-full">
+    <div className="w-full px-[118px]  ">
       <form onSubmit={handleSubmit}>
-        <div className="flex flex-col items-center bg-slate-500 py-12 ">
-          <div>quick contact</div>
-          <p>Several selected clients, who laready believe in our service</p>
+        <div className="flex flex-col items-center rounded-[75px] bg-[#F4F9FF] py-8 mb-[200px] border-2">
+          <div className="text-[40px] font-[650]">Quick Contact</div>
+          <p className="py-[20px] text-[#757575] text-[18px]">Several selected clients, who laready believe in our service</p>
           <div className="w-full flex justify-center  gap-8  px-20 py-12">
             <div className="flex w-full flex-col gap-12 ">
               <div className="flex flex-col items-start">
-                <div>name</div>
+                <div>Name</div>
                 <input
                   type="name"
                   name="name"
                   id="name"
                   autoComplete="off"
                   placeholder=" Name"
-                  className=" w-full  p-4"
+                  className="rounded-[15px] mt-[9px]  w-full  p-4"
                   value={values.name}
                   onChange={handleChange}
                 />
@@ -51,7 +51,7 @@ const ContactForm = () => {
                   id="email"
                   autoComplete="off"
                   placeholder="Email"
-                  className=" w-full  p-4"
+                  className="rounded-[15px] mt-[9px]  w-full  p-4"
                   value={values.email}
                   onChange={handleChange}
                 />
@@ -67,7 +67,7 @@ const ContactForm = () => {
                   id="phone"
                   autoComplete="off"
                   placeholder="Phone"
-                  className="  w-full p-3"
+                  className=" rounded-[15px] mt-[9px]  w-full p-3"
                   value={values.phone}
                   onChange={handleChange}
                 />
@@ -86,7 +86,7 @@ const ContactForm = () => {
                   name="message"
                   id="message"
                   autoComplete="off"
-                  className="w-full h-full   border-2 p-3 text-start"
+                  className="w-full h-full rounded-[15px] mt-[9px]   border-2 p-3 text-start"
                   value={values.message}
                   onChange={handleChange}
                 />
@@ -96,9 +96,9 @@ const ContactForm = () => {
               </div>
             </div>
           </div>
-          <div className=" text-center">
-            <button>
-              <input type="submit" className="" />
+          <div className=" text-center py-[80px]">
+            <button className="py-[20px] text-white text-[16px] font-medium px-[40px] bg-[#2639ED] rounded-[60px]">
+              <input type="submit" className="" value="Contact Now" />
             </button>
           </div>
         </div>

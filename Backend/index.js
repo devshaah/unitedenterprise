@@ -5,6 +5,7 @@ const port =process.env.PORT || 5001
 const productRouter = require('./routes/product')
 const fileUpload = require('express-fileupload');
 const mongoose =require ('mongoose')
+const cors = require('cors')
 
 app.use(fileUpload({
     useTempFiles:true
@@ -23,6 +24,8 @@ async function main() {
 
 
 app.use(express.json())
+app.use(cors())
+
 app.use('/product',productRouter.router)
 
 app.listen(port, ()=>{
