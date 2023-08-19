@@ -1,6 +1,7 @@
 import React from "react";
 import { useFormik } from "formik";
 import ContactSchema from "../schemas/contactScehma";
+import axios from 'axios'
 
 const initialValues = {
   name: "",
@@ -10,11 +11,22 @@ const initialValues = {
 };
 
 const ContactForm = () => {
+  const posting = async () => {
+    try {
+        const res = await axios.post('http://127.0.0.1:5000/message', values );
+        console.log(res.data);
+    } catch (err) {
+        // Handle Error Here
+        console.error(err);
+    }
+  }
+
+
   const { values, errors, handleChange, touched, handleSubmit } = useFormik({
     initialValues: initialValues,
     validationSchema: ContactSchema,
     onSubmit: (values, action) => {
-      console.log(values);
+      // console.log(values);
       action.resetForm();
     },
   });
@@ -98,7 +110,7 @@ const ContactForm = () => {
           </div>
           <div className=" text-center py-[80px]">
             <button className="py-[20px] text-white text-[16px] font-medium px-[40px] bg-[#2639ED] rounded-[60px]">
-              <input type="submit" className="" value="Contact Now" />
+              <input onClick={posting} type="submit" className="" value="Contact Now" />
             </button>
           </div>
         </div>

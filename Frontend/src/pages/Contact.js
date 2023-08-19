@@ -6,8 +6,13 @@ import {MdLocationOn} from 'react-icons/md'
 import {BsFacebook} from 'react-icons/bs'
 import {BsTwitter} from 'react-icons/bs'
 import {BsLinkedin} from 'react-icons/bs'
+import axios from 'axios'
 
 const Contact = () => {
+
+  
+
+
   return (
     <div className="w-full">
       <div className="  flex flex-col bg-[#FEFEFE]  justify-start ">
