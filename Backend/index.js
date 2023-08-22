@@ -4,14 +4,17 @@ const dotenv = require("dotenv").config();
 const port =process.env.PORT || 5001
 const productRouter = require('./routes/product')
 const messageRouter = require('./routes/message')
-
+const bodyParser = require('body-parser')
 const fileUpload = require('express-fileupload');
 const mongoose =require ('mongoose')
 const cors = require('cors')
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(fileUpload({useTempFiles:true}))
 
-app.use(fileUpload({
-    useTempFiles:true
-}))
+const multer = require('multer')
+const storage = multer.memoryStorage();
+const upload = multer({ storage: storage });
 
 // db connection 
 main().catch(err => console.log(err));
@@ -30,6 +33,8 @@ app.use(cors())
 
 app.use('/product',productRouter.router)
 app.use('/message',messageRouter.router)
+
+
 
 
 app.listen(port, ()=>{

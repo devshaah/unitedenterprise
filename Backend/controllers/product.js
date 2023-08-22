@@ -17,40 +17,47 @@ cloudinary.config({
 exports.createProduct = (req,res) =>{
 
 
-const file = req.files.image
-cloudinary.uploader.upload(file.tempFilePath,(err,result)=>{
-  // console.log(req.body)
-  // console.log(result)
+const file = req.file.buffer
+const uploadStream = cloudinary.uploader.upload_stream((error, result) => {
+  if (error) {
+    console.error('Error uploading to Cloudinary:', error);
+    return res.status(500).json({ error: 'An error occurred while uploading the file.' });
+  }
   const product = new Product({
-    prodname:req.body.prodname,
-    quantity:req.body.quantity,
-    company:req.body.company,
-    category:req.body.category,
-    subcategory:req.body.subcategory,
-    image:result.url
+      prodname:req.body.prodname,
+      quantity:req.body.quantity,
+      company:req.body.company,
+      category:req.body.category,
+      subcategory:req.body.subcategory,
+      image:result.secure_url
+  
+    })
+    res.send(product)
+    product
+    .save()
+    .then((doc) => {
+      res.status(201).json(doc);
+    })
+    .catch((err) => {
+      res.status(400).json(err);
+    });
 
-  })
-  // console.log(product)
-  // res.send(product)
+  
 
-  // uncomment once database is connected
+  
+});
 
-  product
-  .save()
-  .then((doc) => {
-    res.status(201).json(doc);
-  })
-  .catch((err) => {
-    res.status(400).json(err);
-  });
-}) 
+// Pipe the file buffer to the Cloudinary upload stream
+uploadStream.end(file);
+
+
     
 
 
 }
 exports.getAllProducts = async(req,res) =>{
-  // const products = await Product.find()
-  //   res.status(200).json(products)
+  const products = await Product.find()
+    res.status(200).json(products)
   res.send('hello')
 
 

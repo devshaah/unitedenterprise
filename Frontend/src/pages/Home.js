@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import ProductForm from '../components/ProductForm'
 import axios from 'axios'
 
 const Home = () => {
@@ -18,6 +19,8 @@ const Home = () => {
   return (
     <div>
       home
+      <ProductForm/>
+      {/* <TrialForm/> */}
     </div>
   )
 }
