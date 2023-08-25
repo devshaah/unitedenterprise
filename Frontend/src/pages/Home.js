@@ -3,6 +3,8 @@ import ProductForm from '../components/ProductForm'
 import axios from 'axios'
 import img from '../assets/image 8.png'
 import { useNavigate } from 'react-router-dom'
+import ProductCard from '../components/ProductCard'
+import ContactForm from '../components/ContactForm'
 
 const Home = () => {
   const navigate = useNavigate()
@@ -27,17 +29,17 @@ const Home = () => {
           <img src={img} className='w-full' alt='img' />
         </div>
         <div className='flex flex-col items-center justify-center mx-10 gap-[30px]'>
-          <p className='mb-0 text-[40px]'>United Enterprise</p>
-          <p className='mb-0 text-[#565656] text-[15px]'>Leading digital agency with solid design and development expertise. We build readymade websites, mobile applications, and elaborate online business services.</p>
-          <div onClick={()=>navigate("/contact")} className='bg-[#2639ED] px-10 py-4 rounded-[50px] text-[white] text-[18px]'>
+          <p className='mb-0 text-[2.5rem] font-[500]'>United Enterprise</p>
+          <p className='mb-0 text-[#565656] text-[1.1rem]'>Leading digital agency with solid design and development expertise. We build readymade websites, mobile applications, and elaborate online business services.</p>
+          <div onClick={()=>navigate("/contact")} className='bg-[#2639ED] px-10 py-4 rounded-[50px] text-[white] text-[1.2rem]'>
             Enquire Now !
           </div>
         </div>
       </div>
       <div className='py-20 px-20'>
-        <p className='text-[40px] font-[700]'>Our Clients</p>
+        <p className='text-[2rem] font-[700]'>Our Clients</p>
         <div className='grid grid-cols-[30%_70%] mt-[20px]'>
-          <p className='text-[#565656] text-[17px]'>Several selected clients, who already believe in our service.</p>
+          <p className='text-[#565656] text-[1rem]'>Several selected clients, who already believe in our service.</p>
           <div className='flex items-center justify-center '>
 
           </div>
@@ -46,8 +48,8 @@ const Home = () => {
 
       <div className='bg-[#F4F9FF] px-20 grid grid-cols-[60%_40%]'>
           <div className='flex flex-col items-center justify-center gap-[20px] text-start'>
-            <p className='mb-0 text-[40px]  font-[600]'>Product Categories</p>
-            <p className='mb-0 text-[16px] text-[#565656]'>We have a wide range of products such as ramson,
+            <p className='mb-0 text-[2.2rem]  font-[600]'>Product Categories</p>
+            <p className='mb-0 text-[1.1rem] text-[#565656]'>We have a wide range of products such as ramson,
 ramson,ramson.</p>
           </div>
           <div className='grid grid-cols-2 mt-0 gap-0'>
@@ -71,6 +73,39 @@ ramson,ramson.</p>
             </div>
                 
           </div>
+      </div>
+
+      <div className='px-20 grid grid-cols-2 mt-20 gap-[5rem]'>
+        <img className='rounded-[32px]' src='https://s3-alpha-sig.figma.com/img/00bf/036e/5c85fe148218431cea661b4db3e73cab?Expires=1693785600&Signature=ZHBwcr-hlcTEhDaxaLpTF4UnLgHzzXAWUAqkJepISd1ndHwDh2jtCj1yWBDM6MqAGA84UAWU7obaOz~SdUOK~2solVmUWQJwbKgDJizXshn3ZCTs0U~Aia5CwPpF8c2jaFVjuFMZ-Qk-l84G80xM8GSm~QL~VD1YEKJJ5~PZIEFr2T9J4KwgDLe4SMm4pYU21GyCUzli6aIowccEyqtoXURJqaX0Zn8qLMOhLxz3gvRbATsbWejssVqqCLXDbrqeDW76wjwuNuo1bdJ5Pa-Mz64oy11ipxtYk47XPd9WtpTDJxsiDIHUopaNKVXIuFsnCJYIg~D9JcKikdywtsip7w__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4' />
+        <div className='flex flex-col gap-[2rem] items-start justify-center text-start'>
+            <p className='mb-0 text-[2rem] font-[700] text-start'>About Us</p>
+              <p className='mb-0 text-[1.2rem] text-[#565656]'>We have a wide range of products such as ramson,
+ramson,ramson.</p>
+        </div>
+
+      </div>
+
+      <div className='mt-20 px-20'>
+      <div className='flex items-center justify-between mt-[30px]'>
+                <p className='text-[2.5rem] text-[black] font-[600] mb-0'>Our Products</p>
+                <p className='text-[#2639ED] text-[1.1rem] font-[400] cursor-pointer mb-0'>View More</p>
+      </div>
+      <div className='flex items-center justify-center flex-wrap flex-shrink-0 gap-[5rem] mt-[40px]'>
+      {
+        Categories.map((object)=>{
+          return (
+            <div>
+              <ProductCard/>
+            </div>
+          )
+        })
+      }
+      </div>
+      </div>
+
+      <div className='mt-20'>
+        <ContactForm />
+
       </div>
 
     </div>
