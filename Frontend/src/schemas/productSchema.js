@@ -1,7 +1,5 @@
 import * as yup from "yup"
 
-
-
 const ProductSchema = yup.object({
     prodname: yup.string().required("Please enter your product name"),
     quantity:  yup.number().required("Please enter the quantity "),
@@ -9,9 +7,7 @@ const ProductSchema = yup.object({
     category: yup.string().required("Please enter the category"),
     subcategory: yup.string(),
     image:yup.mixed()
-
 }
-    
 
 )
 

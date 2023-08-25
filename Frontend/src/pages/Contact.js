@@ -6,12 +6,10 @@ import {MdLocationOn} from 'react-icons/md'
 import {BsFacebook} from 'react-icons/bs'
 import {BsTwitter} from 'react-icons/bs'
 import {BsLinkedin} from 'react-icons/bs'
-import axios from 'axios'
+import {BsWhatsapp} from 'react-icons/bs'
+// import axios from 'axios'
 
 const Contact = () => {
-
-  
-
 
   return (
     <div className="w-full">
@@ -26,32 +24,27 @@ const Contact = () => {
               <div className="text-lg font-[600]">Address</div>
             </div>
             <div className=" text-[#565656]">
-              Leading digital agency with solid design and development
-              expertise. We build readymade websites, mobile applications, and
-              elaborate online business services.
+              Shop no. 3, Dharam Pratap CHS, Damodar Wadi, Ashok Nagar, Kandivali (East), Mumbai - 400101.
             </div>
             <div className="flex gap-[10px]  items-center">
               <AiFillMail size={22} className="text-[#2639ED]"/>
 
               <div className="text-lg font-[600]">Email</div>
             </div>
-            <div className=" text-[#565656]">email@email.com</div>
+            <div className=" text-[#565656]">unitedenterprise2022@email.com</div>
             <div className="flex gap-[10px]  items-center">
               <BsFillTelephoneFill size={22} className="text-[#2639ED]"/>
 
               <div className="text-lg font-[600]">Contact Information</div>
             </div>
             <div className="flex flex-col text-[#565656]">
-              <div>12234567890</div>
-              <div>12234567890</div>
+              <div>+91 87799 60482</div>
+              {/* <div>12234567890</div> */}
             </div>
             <div className="flex gap-[16px]">
-              <div > <BsFacebook size={30} className="text-[#3B5998]"/></div>
+              <div ><a href="https:/wa.me/7715027917"> <BsWhatsapp size={30} className="text-[#3B5998]"/></a></div>
               <div> <BsTwitter size={30} className=" text-[#55ACEE]"/> </div>
               <div > <BsLinkedin size={30} className="rounded-full text-[#007AB9]"/></div>
-
-            
-
             </div>
           </div>
           <div className="w-[589px] border-2 h-[549px]">map</div>
