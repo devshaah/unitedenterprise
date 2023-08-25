@@ -6,6 +6,7 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import AddProducts from './pages/AddProducts';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route exact path="/products" element={<Product/>} />
           <Route exact path="/about" element={<About/>} />
           <Route exact path="/contact" element={<Contact/>} />
+          <Route exact path="/add-products" element={<AddProducts/>} />
         </Routes>
       <Footer/>
       <p className='m-2 text-[#A4a4a4] text-[16px] text-center'>Copyright © 2023 United Enterprise</p>

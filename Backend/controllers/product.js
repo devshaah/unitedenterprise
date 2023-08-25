@@ -58,7 +58,5 @@ uploadStream.end(file);
 exports.getAllProducts = async(req,res) =>{
   const products = await Product.find()
     res.status(200).json(products)
-  res.send('hello')
-
-
+  // res.send('hello')
 }

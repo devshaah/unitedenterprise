@@ -1,6 +1,5 @@
 import * as yup from "yup"
 
-
 const phoneRegExp = /^(\+91|\+91\-|0)?[789]\d{9}$/
 
 const ContactSchema = yup.object({
