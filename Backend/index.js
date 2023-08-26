@@ -4,6 +4,8 @@ const dotenv = require("dotenv").config();
 const port =process.env.PORT || 5001
 const productRouter = require('./routes/product')
 const messageRouter = require('./routes/message')
+const companyRouter = require('./routes/company')
+
 const bodyParser = require('body-parser')
 const fileUpload = require('express-fileupload');
 const mongoose =require ('mongoose')
@@ -33,6 +35,8 @@ app.use(cors())
 
 app.use('/product',productRouter.router)
 app.use('/message',messageRouter.router)
+app.use('/company',companyRouter.router)
+
 
 
 
