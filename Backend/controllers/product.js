@@ -32,7 +32,18 @@ const uploadStream = cloudinary.uploader.upload_stream((error, result) => {
       image:result.secure_url
   
     })
-    res.send(product)
+    
+    // if(!companies.includes(req.body.company))
+    // {
+    //   companies.push(req.body.company)
+    // }
+    exports.company = req.body.company
+
+
+
+
+
+    // res.send(product)
     product
     .save()
     .then((doc) => {
@@ -59,4 +70,10 @@ exports.getAllProducts = async(req,res) =>{
   const products = await Product.find()
     res.status(200).json(products)
   // res.send('hello')
+
 }
+
+
+
+
+

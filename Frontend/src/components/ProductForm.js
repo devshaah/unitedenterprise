@@ -15,10 +15,31 @@ const initialValues = {
 };
 
 const ProductForm = () => {
+  const postingcompany=async()=>{
+    try {
+    const res2 = await axios.post('http://127.0.0.1:5000/company', values );
+      console.log(res2.data);
+      // const res1 = await axios.post('http://127.0.0.1:5000/product', formdata );
+      // console.log(res1.data);
+      
+      
+  } catch (err) {
+      // Handle Error Here
+      console.error(err);
+  }
+}
+
+
+
+
   const posting = async () => {
     try {
-        const res = await axios.post('http://127.0.0.1:5000/product', formdata );
-        console.log(res.data);
+      // const res2 = await axios.post('http://127.0.0.1:5000/company', formdata );
+        // console.log(res2.data);
+        const res1 = await axios.post('http://127.0.0.1:5000/product', formdata );
+        console.log(res1.data);
+        postingcompany();
+        
     } catch (err) {
         // Handle Error Here
         console.error(err);
@@ -51,6 +72,8 @@ const ProductForm = () => {
   formdata.append("category",values.category)
   formdata.append("subcategory", values.subcategory)
   formdata.append("file",imagefile)
+
+ 
 
 //   
 
