@@ -3,8 +3,6 @@ import { useFormik } from "formik";
 import ProductSchema from "../schemas/productSchema";
 import axios from 'axios'
 
-
-
 const initialValues = {
     prodname: "",
     quantity:  "",
@@ -15,54 +13,36 @@ const initialValues = {
 };
 
 const ProductForm = () => {
+
   const postingcompany=async()=>{
     try {
     const res2 = await axios.post('http://127.0.0.1:5000/company', values );
       console.log(res2.data);
-      // const res1 = await axios.post('http://127.0.0.1:5000/product', formdata );
-      // console.log(res1.data);
-      
-      
   } catch (err) {
-      // Handle Error Here
       console.error(err);
   }
 }
 
-
-
-
   const posting = async () => {
     try {
-      // const res2 = await axios.post('http://127.0.0.1:5000/company', formdata );
-        // console.log(res2.data);
         const res1 = await axios.post('http://127.0.0.1:5000/product', formdata );
         console.log(res1.data);
         postingcompany();
         
     } catch (err) {
-        // Handle Error Here
         console.error(err);
     }
   }
-  
-
-
-
-
-
 
   const { values, errors, handleChange, touched, handleSubmit , setFieldValue } = useFormik({
     initialValues: initialValues,
     validationSchema: ProductSchema,
     onSubmit: (values, action) => {
-      // console.log(values);
-  
-
       action.resetForm();
       setImagefile(null)
     },
   });
+
   const [imagefile,setImagefile] = useState(null)
 
   const formdata = new FormData();
@@ -72,13 +52,6 @@ const ProductForm = () => {
   formdata.append("category",values.category)
   formdata.append("subcategory", values.subcategory)
   formdata.append("file",imagefile)
-
- 
-
-//   
-
-
-
 
   return (
     <div className="w-full px-[118px]  ">
@@ -191,10 +164,9 @@ const ProductForm = () => {
 
            
           </div>
-          <div className=" text-center py-[80px]">
+          <div className=" text-center py-[80px]" onClick={posting}>
             <button className="py-[20px] text-white text-[16px] font-medium px-[40px] bg-[#2639ED] rounded-[60px]">
-              <input
-               onClick={posting}
+              <input            
                 type="submit" className="" value="Add product" />
             </button>
           </div>
