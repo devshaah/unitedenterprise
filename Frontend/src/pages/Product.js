@@ -1,12 +1,48 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import ProductCard from '../components/ProductCard'
 import {BsSearch} from 'react-icons/bs'
+import axios from 'axios'
+import gif from '../assets/loader.gif'
 
 const Product = () => {
-  const temp = [1,2,3];
-  const categories = ["Romson","Romson","Romson","Romson"]
+  const [companies,setcompanies] = useState([])
+  const [products,setproducts] = useState([])
+  const [id,setid] = useState("")
+  const [loading,setloading] = useState(true)
+
+
+  const posting = async () => {
+    try {
+        const res = await axios.get('http://127.0.0.1:5000/product');
+        const res2 = await axios.get('http://127.0.0.1:5000/company');
+        setcompanies(res2.data);
+        setproducts(res.data);
+        console.log(res.data);
+        console.log(res2.data);
+        setloading(false)
+    } catch (err) {
+        console.error(err);
+    }
+  }
+  useEffect(()=>{
+    posting()
+
+  },[])
+
+  const changes = (company) => {
+    console.log(company.company)
+    if(id === "") setid(company.company)
+    else setid("")
+  }
+
   return (
     <div className=''>
+    { loading ?
+    <div className='h-[80vh] w-full flex items-center justify-center'>
+      <img src={gif} className='h-[200px]' />
+      </div>
+    :
+      <div>
       <div className='bg-[#F4F9FF] px-20 flex items-center justify-between py-[35px]' >
           <p className='mb-0 text-[40px] font-[600]'>Our Products</p>
           <div className='bg-white flex items-center justify-center gap-[10px] cursor-pointer px-[20px] py-[12px] rounded-[15px]'>
@@ -16,17 +52,23 @@ const Product = () => {
       </div>
       <div className='px-20 pt-[30px] mb-[150px]'>
       {
-        categories.map((category)=>{
-          return <div>
+        companies.map((company)=>{
+          return <div className=''>
             <div className='flex items-center justify-between mt-[30px]'>
-                <p className='text-[40px] text-[black] font-[600] mb-0'>{category}</p>
-                <p className='text-[#2639ED] text-[14px] font-[400] cursor-pointer mb-0'>View More</p>
+                <p className='text-[40px] text-[black] font-[600] mb-0'>{company.company}</p>
+                {
+                  id===company.company ?
+                  <p onClick={()=>{changes(company)}} className='text-[#2639ED] text-[14px] font-[400] cursor-pointer mb-0'>View Less</p>
+:
+                  <p onClick={()=>{changes(company)}} className='text-[#2639ED] text-[14px] font-[400] cursor-pointer mb-0'>View More</p>
+
+                }
             </div>
-            <div className='flex items-center justify-start gap-[70px] mt-[40px]'>
+            <div className={`flex items-center justify-start gap-[70px] mt-[40px] ${id===company.company ? "flex-wrap" : ""}`}>
             {
-              temp.map((i)=>{
-                return <div>
-                  <ProductCard/>
+              products.map((product,i)=>{
+                return  product.company === company.company && <div>
+                  <ProductCard product={product}/>
                   </div>
               })
             }
@@ -35,6 +77,7 @@ const Product = () => {
         })
       }
     </div>
+    </div>}
     </div>
   )
 }

@@ -62,7 +62,7 @@ B-Fit,ramson.</p>
             <div className='flex flex-col items-center justify-start gap-[20px] -mt-[18px]'>
             {companies.map((object, i)=>{
                   return (                    
-                        i<=2 && <div className='w-fit px-[60px] py-[20px] bg-[white] shadow-[0px_6.706827163696289px_33.53413772583008px_0px_rgba(0,0,0,0.05)] border-[0.5px] border-[#F2F2F2] rounded-[25px] capitalize'>
+                        i<=2 && <div className='w-fit px-[60px] py-[20px] bg-[white] shadow-[0px_6.706827163696289px_33.53413772583008px_0px_rgba(0,0,0,0.05)]  hover:scale-110 border-[0.5px] border-[#F2F2F2] rounded-[25px] capitalize'>
                           {object.company}
                       </div>                   
                   )             
@@ -71,7 +71,7 @@ B-Fit,ramson.</p>
             <div className='flex flex-col items-start justify-center gap-[20px] mt-[80px]'>
             {companies.map((object, i)=>{
                   return (                    
-                      i>2 && <div className='w-fit px-[60px] py-[20px] bg-[white] shadow-[0px_6.706827163696289px_33.53413772583008px_0px_rgba(0,0,0,0.05)] border-[0.5px] border-[#F2F2F2] rounded-[25px] capitalize'>
+                      i>2 && i<=5 && <div className='w-fit  hover:scale-110 px-[60px] py-[20px] bg-[white] shadow-[0px_6.706827163696289px_33.53413772583008px_0px_rgba(0,0,0,0.05)] border-[0.5px] border-[#F2F2F2] rounded-[25px] capitalize'>
                           {object.company}
                       </div>                   
                   )             
