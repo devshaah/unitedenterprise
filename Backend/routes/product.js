@@ -8,6 +8,7 @@ const upload = multer({ storage: storage });
 
 router
  .get('/',productController.getAllProducts)
+ .get("/:item", productController.getProduct)
  .post('/',upload.single('file'),productController.createProduct)
 
 

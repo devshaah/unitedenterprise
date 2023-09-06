@@ -72,6 +72,26 @@ exports.getAllProducts = async(req,res) =>{
   // res.send('hello')
 
 }
+exports.getProduct = async(req,res) =>{
+ const item = req.params.item
+ const regexPattern = new RegExp(item, 'i');
+//  const products = await Product.find({
+//   $or: [
+//     { prodname: item },
+//     { company: item }
+//   ]
+// })
+ 
+  const products = await Product.find({
+    $or: [
+      { prodname: { $regex: regexPattern } },
+      { company: { $regex: regexPattern } }
+    ]
+  })
+    res.status(200).json(products)
+  // res.send('hello')
+
+}
 
 
 
