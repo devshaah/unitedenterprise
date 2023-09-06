@@ -49,6 +49,8 @@ const ProductForm = () => {
   formdata.append("prodname",values.prodname)
   formdata.append("quantity",values.quantity)
   formdata.append("company",values.company)
+  formdata.append("companywebsite",values.companywebsite)
+
   formdata.append("category",values.category)
   formdata.append("subcategory", values.subcategory)
   formdata.append("file",imagefile)
@@ -106,6 +108,22 @@ const ProductForm = () => {
                 />
                 {errors.company && touched.company ? (
                         <p>{errors.company}</p>
+                      ) : null}
+              </div>
+              <div className="flex flex-col items-start">
+                <div>Company Website</div>
+                <input
+                  type="text"
+                  name="companywebsite"
+                  id="company"
+                  autoComplete="off"
+                  placeholder="Company"
+                  className=" rounded-[15px] mt-[9px]  w-full p-3"
+                  value={values.companywebsite}
+                  onChange={handleChange}
+                />
+                {errors.companywebsite && touched.companywebsite ? (
+                        <p>{errors.companywebsite}</p>
                       ) : null}
               </div>
               <div className="flex flex-col items-start">

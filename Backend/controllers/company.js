@@ -9,7 +9,9 @@ exports.createCompany=async (req,res)=>{
     const oldCompany = await Company.findOne({company:req.body.company})
     if(!oldCompany)
     {const company = new Company({
-        company :req.body.company
+        company :req.body.company,
+        companywebsite :req.body.companywebsite
+
     })
     
     company

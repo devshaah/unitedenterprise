@@ -27,6 +27,7 @@ const uploadStream = cloudinary.uploader.upload_stream((error, result) => {
       prodname:req.body.prodname,
       quantity:req.body.quantity,
       company:req.body.company,
+      companywebsite:req.body.companywebsite,
       category:req.body.category,
       subcategory:req.body.subcategory,
       image:result.secure_url
