@@ -37,3 +37,15 @@ exports.getAllCompanies=async (req,res)=>{
 
 
 }
+exports.updateCompany = async (req, res) => {
+    const id = req.params.id;
+    try {
+      const doc = await Company.findOneAndUpdate({ _id: id }, req.body, {
+        new: true,
+      });
+      res.status(202).json(doc);
+    } catch (err) {
+      console.log(err);
+      res.status(400).json(err);
+    }
+  };

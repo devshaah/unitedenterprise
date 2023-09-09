@@ -7,6 +7,8 @@ const initialValues = {
     prodname: "",
     quantity:  "",
     company: "",
+    companywebsite: "",
+
     category: "",
     subcategory: "",
     image:""
@@ -39,6 +41,7 @@ const ProductForm = () => {
     validationSchema: ProductSchema,
     onSubmit: (values, action) => {
       action.resetForm();
+      //  console.log(values)
       setImagefile(null)
     },
   });
@@ -115,9 +118,9 @@ const ProductForm = () => {
                 <input
                   type="text"
                   name="companywebsite"
-                  id="company"
+                  id="companywebsite"
                   autoComplete="off"
-                  placeholder="Company"
+                  placeholder="Company Website"
                   className=" rounded-[15px] mt-[9px]  w-full p-3"
                   value={values.companywebsite}
                   onChange={handleChange}

@@ -47,7 +47,10 @@ const Contact = () => {
               <div > <BsLinkedin size={30} className="rounded-full text-[#007AB9]"/></div>
             </div>
           </div>
-          <div className="w-[589px] border-2 h-[549px]">map</div>
+          <div className="w-[589px] border-2 h-[549px]">
+            {/* map */}
+            <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d3767.9922442018587!2d72.85516697507737!3d19.195541098209095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sShop%20no.%203%2C%20Dharam%20Pratap%20CHS%2C%20Damodar%20Wadi%2C%20Ashok%20Nagar%2C%20Kandivali%20(East)%2C%20Mumbai%20-%20400101.!5e0!3m2!1sen!2sin!4v1694241183257!5m2!1sen!2sin"  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" className="border-0 h-[549px] w-[589px]"></iframe>
+            </div>
         </div>
         <div className="flex justify-center ">
           <ContactForm />
