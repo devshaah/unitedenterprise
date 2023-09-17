@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 import logo from '../assets/logo.jpg'
 import { useNavigate } from 'react-router-dom'
 
-const Navbar = () => {
+const Navbar = ({active,setactive}) => {
 
-    const [active,setactive] = useState('home')
+
     const navigate = useNavigate()
 
   return (
