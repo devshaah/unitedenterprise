@@ -1,4 +1,4 @@
-import React, { useEffect, useState,} from 'react'
+import React, { useEffect, useState} from 'react'
 import ProductForm from '../components/ProductForm'
 import axios from 'axios'
 import img from '../assets/image 8.png'
@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom'
 import ProductCard from '../components/ProductCard'
 import ContactForm from '../components/ContactForm'
 
-const Home = () => {
+const Home = ({setactive}) => {
   const navigate = useNavigate()
   const [companies,setcompanies] = useState([])
   const [products,setproducts] = useState([])
@@ -26,7 +26,6 @@ const Home = () => {
   useEffect(()=>{
     posting()
   },[])
-  const Categories = ["a","b","c","d","e","f"]
   
   return (
     <div className=''>
@@ -37,7 +36,7 @@ const Home = () => {
         <div className='flex flex-col items-center justify-center mx-10 gap-[30px]'>
           <p className='mb-0 text-[2.5rem] font-[500]'>United Enterprise</p>
           <p className='mb-0 text-[#565656] text-[1.1rem]'>Leading digital agency with solid design and development expertise. We build readymade websites, mobile applications, and elaborate online business services.</p>
-          <div onClick={()=>navigate("/contact")} className='bg-[#2639ED] px-10 py-4 rounded-[50px] text-[white] text-[1.2rem]'>
+          <div onClick={()=>{setactive("/contact");navigate("/contact")}} className='bg-[#2639ED] px-10 py-4 rounded-[50px] text-[white] text-[1.2rem]'>
             Enquire Now !
           </div>
         </div>
@@ -63,7 +62,7 @@ B-Fit,ramson.</p>
             {companies.map((object, i)=>{
                   return (                    
                         i<=2 && <div className='w-fit px-[60px] py-[20px] bg-[white] shadow-[0px_6.706827163696289px_33.53413772583008px_0px_rgba(0,0,0,0.05)]  hover:scale-110 border-[0.5px] border-[#F2F2F2] rounded-[25px] capitalize'>
-                          {object.company}
+                          <a href={object.companywebsite} rel="noreferrer" target='_blank' >{object.company}</a>
                       </div>                   
                   )             
                 })}
@@ -71,8 +70,8 @@ B-Fit,ramson.</p>
             <div className='flex flex-col items-start justify-center gap-[20px] mt-[80px]'>
             {companies.map((object, i)=>{
                   return (                    
-                      i>2 && i<=5 && <div className='w-fit  hover:scale-110 px-[60px] py-[20px] bg-[white] shadow-[0px_6.706827163696289px_33.53413772583008px_0px_rgba(0,0,0,0.05)] border-[0.5px] border-[#F2F2F2] rounded-[25px] capitalize'>
-                          {object.company}
+                      i>2 && i<=5 && <div className='w-fit  hover:scale-110 px-[60px] py-[20px] bg-[white] shadow-[0px_6.706827163696289px_33.53413772583008px_0px_rgba(0,0,0,0.05)] border-[0.5px] border-[#F2F2F2] rounded-[25px] capitalize' >
+                        <a href={object.companywebsite} rel="noreferrer" target='_blank'>{object.company}</a>
                       </div>                   
                   )             
                 })}
